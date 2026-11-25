@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-page: #ffffff;
+  --color-card: #ffffff;
+  --color-card-2: #f3f6f9;
+  --color-line: #e3e8ef;
+
+  --color-primary: #10b981;
+  --color-primary-hover: #059669;
+  --color-accent: #0891b2;
+  --color-blue: #1e40af;
+  --color-star: #facc15;
+  --color-danger: #ef4444;
+
+  --color-heading: #0f172a;
+  --color-body: #64748b;
+
+  --font-inter: "Inter", sans-serif;
+}
+
+[data-theme="dark"] {
+  --color-page: #0e0e22;
+  --color-card: #1a1a2e;
+  --color-card-2: #23233b;
+  --color-line: #2c2c48;
+  --color-accent: #22d3ee;
+  --color-heading: #ffffff;
+  --color-body: #a3a6c2;
+}
+html {
+  scroll-padding-top: 6rem;
+}
+
+body {
+  font-family: var(--font-inter);
+  background: var(--color-page);
+  color: var(--color-body);
+  overflow-x: clip;
+}
+
+/* h1, h2, h3, h4 {
+  color: var(--color-heading);
+} */
+
+@layer base {
+  h1, h2, h3, h4 {
+    color: var(--color-heading);
+  }
+}
+
+@layer components {
+  .max-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+
+  .btn {
+    @apply inline-flex h-11 items-center justify-center rounded-lg px-5 font-semibold transition;
+  }
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-hover;
+  }
+  .btn-outline {
+    @apply border border-primary text-primary hover:bg-primary/10;
+  }
+    .btn-secondary {
+    @apply border border-line bg-card text-heading hover:border-primary;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-card p-5 transition hover:border-primary;
+  }
+  .input {
+  @apply h-11 w-full rounded-xl border border-line bg-card-2 px-4 text-heading outline-none focus:border-primary;
+  }
+  .input2 {
+  @apply h-11 w-100 rounded-xl border border-line bg-transparent px-4 text-heading outline-none focus:border-primary;
+  }
+ .chip {
+  @apply rounded-full bg-card-2 px-4 py-2 text-sm font-medium text-heading;
+  }
+}
+
+@layer utilities {
+  .padding {
+    @apply px-4 py-12 sm:px-6 md:py-16 lg:py-20 xl:px-8;
+  }
+  .padding-x {
+    @apply px-4 sm:px-6 xl:px-8;
+  }
+  .padding-y {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+  .padding-t {
+    @apply pt-24 lg:pt-28;
+  }
+
+  .title-xl {
+    @apply text-4xl font-extrabold md:text-5xl lg:text-6xl;
+  }
+  .title-lg {
+    @apply text-3xl font-bold md:text-4xl lg:text-5xl;
+  }
+  .title-md {
+    @apply text-2xl font-bold md:text-3xl lg:text-4xl;
+  }
+  .title-sm {
+    @apply text-lg font-semibold md:text-xl;
+  }
+}
+
+/* Desktop kaliya (1024px+): qoraalka iyo spacing-ka 6% yar */ /* 16px caadi ahaan; 14px = 12% yar */
+@media (min-width: 1024px) {
+  html {
+    font-size: 15px; 
+  }
+}
